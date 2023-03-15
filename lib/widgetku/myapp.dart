@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:konversi_suhu_flutter/widgetku/rowtext.dart';
 
 import 'convert.dart';
 import 'input.dart';
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
@@ -50,114 +51,13 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: <Widget>[
               Input(myController: myController),
-              Container(
-                  width: 200,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.cyanAccent,
-                    border: Border.all(
-                        color: Colors.black, style: BorderStyle.solid),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  margin: const EdgeInsets.only(top: 100),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(right: 0),
-                            child: const Text(
-                              "Suhu (Kelvin)",
-                              style: TextStyle(
-                                  fontSize: 20, fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              _kelvin.toStringAsFixed(2),
-                              style: const TextStyle(fontSize: 20),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  width: 200,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.cyanAccent,
-                    border: Border.all(
-                        color: Colors.black, style: BorderStyle.solid),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(left: 0),
-                            child: const Text(
-                              "Suhu (Reamor)",
-                              style: TextStyle(
-                                  fontSize: 20, fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              _reamor.toStringAsFixed(2),
-                              style: const TextStyle(fontSize: 20),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  width: 200,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    color: Colors.cyanAccent,
-                    border: Border.all(
-                        color: Colors.black, style: BorderStyle.solid),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(left: 0),
-                            child: const Text(
-                              "Suhu (Fahrenheit)",
-                              style: TextStyle(
-                                  fontSize: 20, fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              _fahrenheit.toStringAsFixed(2),
-                              style: const TextStyle(fontSize: 20),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )),
+              rowText(
+                  text1: 'Suhu (Kelvin)', text2: _kelvin.toStringAsFixed(2)),
+              rowText(
+                  text1: 'Suhu (Reamur)', text2: _reamor.toStringAsFixed(2)),
+              rowText(
+                  text1: 'Suhu (Fahrenheit)',
+                  text2: _fahrenheit.toStringAsFixed(2)),
               Convert(konvertHandler: _konversiSuhu),
             ],
           ),

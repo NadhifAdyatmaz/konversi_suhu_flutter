@@ -8,14 +8,15 @@ class Convert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(top: 200),
+        margin: const EdgeInsets.only(top: 170),
         width: double.infinity,
         height: 50,
         child: TextButton(
             onPressed: () {
               konvertHandler();
             },
-            style: TextButton.styleFrom(backgroundColor: Colors.blueAccent),
+            style: TextButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 241, 6, 147)),
             child: const Text(
               "Konversi Suhu",
               style: TextStyle(
